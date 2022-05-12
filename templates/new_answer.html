@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Adding a new answer{% endblock %}
+
+{% block content %}
+<div class="form-group">
+    <div class="form-group col-md-4">
+        <h3>Adding a new answer</h3>
+        <form action="{{ url_for('add_new_answer', question_id=question_id) }}" method="post">
+            <label for="new_answer">Type your answer below.</label>
+            <br>
+            <textarea id="new_answer" name="new_answer" class="form-control" minlength="10" required></textarea>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit answer</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

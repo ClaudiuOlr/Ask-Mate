@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %} Display questions {% endblock %}
+
+{% block content %}
+<h2>Results of searching for: "{{ search_for }}" </h2>
+{% if (questions is defined) and questions %} <br>
+<h3>In questions:</h3>
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Submission Time</th>
+            <th>View Number</th>
+            <th>Vote Number</th>
+            <th>Title</th>
+            <th>Message</th>
+            <th>Image</th>
+            <th>View</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for question in questions %}
+        <tr>
+            <td>{{ question['id'] }}</td>
+            <td>{{ question['submission_time'] }}</td>
+            <td>{{ question['view_number'] }}</td>
+            <td>{{ question['vote_number'] }}</td>
+            <td>{{ question['title'] }}</td>
+            <td>{{ question['message'] }}</td>
+            <td>{{ question['image'] }}</td>
+            <td><a href="{{ url_for('display_question', question_id=question['id']) }}">See question</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endif %}
+
+{% if (answers is defined) and answers %} <br>
+<h3>In answers:</h3>
+<table class="table table-hover table-dark">
+    <thead>
+        <th>
+            <td>ID</td>
+            <td>Submission Time</td>
+            <td>Vote Number</td>
+            <td>Question ID</td>
+            <td>Message</td>
+            <td>Image</td>
+            <td>View</td>
+        </th>
+    </thead>
+    <tbody>
+        {% for answer in answers %}
+        <tr>
+            <td>{{ answer['id'] }}</td>
+            <td>{{ answer['submission_time'] }}</td>
+            <td>{{ answer['vote_number'] }}</td>
+            <td>{{ answer['question_id'] }}</td>
+            <td>{{ answer['message'] }}</td>
+            <td>{{ answer['image'] }}</td>
+            <td><a href="{{ url_for('display_question', question_id=answer['question_id']) }}">View question.</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+<br>
+<a href="{{ url_for('home_page') }}">Back to homepage.</a>
+
+{% endblock %}

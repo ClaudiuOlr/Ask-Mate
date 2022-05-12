@@ -1,0 +1,49 @@
+{% extends 'base.html' %}{% block title %} {{ session.get('username') }}'s page {% endblock %} {% block content %}
+    <div id="user_page">
+        <div class="user-page-head">
+            <h1>{{ user_attributes['username'] }}</h1>
+            <div id="question_info">
+                <p>Reputation: {{ user_attributes['reputation'] }}</p>
+                <p>{{ user_attributes['registration'] }}</p>
+            </div>
+        </div>
+        {% if number_of_questions != 0 %}
+            <div class="user-page-bottom">
+                <h2>{{ number_of_questions }} Questions</h2>
+            </div>
+            <div id="user_questions">
+                <table>
+                    <tbody>
+                        {% for row in questions %}
+                        <tr>
+                            <td>{{ row['title'] }}</td>
+                            <td>{{ row['view_number'] }}<br>Views</td>
+                            <td>{{ row['vote_number'] }}<br>Votes</td>
+                            <td>{{ row['submission_time'] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+        {% if number_of_answers != 0 %}
+            <div class="user-page-bottom">
+                <h2>{{ number_of_answers }} Answers</h2>
+            </div>
+            <div id="user_answers">
+                <table>
+                    <tbody>
+                        {% for row in answers %}
+                        <tr>
+                            <td>{{ row['message'] }}</td>
+                            <td><a href="{{ url_for('display_question', question_id=row['question_id']) }}">View Question</a></td>
+                            <td>{{ row['vote_number'] }}<br>Votes</td>
+                            <td>{{ row['submission_time'] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

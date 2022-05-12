@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% block title %} Login {% endblock %} {% block content %}
+    <div class="input_form">
+        <form method="POST" action="{{ url_for('register') }}">
+            <h1>Register a new account</h1><br>
+            <label for="username">Username</label><input type="text" name="username" id="username" />
+            <label for="password">Password</label><input type="password" name="password" id="password" />
+            <label for="password2">Enter the password again:</label><input type="password" name="password2" id="password2" />
+            <button type="submit">Register</button>
+        </form>
+    <div class="error_message">
+        {% if error_message %}
+            <p>{{ error_message }}</p>
+        {% endif %}
+    </div>
+    </div>
+{% endblock %}

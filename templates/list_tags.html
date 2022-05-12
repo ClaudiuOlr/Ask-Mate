@@ -1,0 +1,6 @@
+{% extends 'base.html' %}{% block title %} Tags {% endblock %} {% block content %}
+    {% for tag in tags %}
+        <h2>Tag name : {{ tag.name }}</h2>
+        <h4>Nr. of questions : {{ tag.number_of_questions }}</h4><hr>
+    {% endfor %}
+{% endblock content %}

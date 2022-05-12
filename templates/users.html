@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Users {% endblock %}
+
+{% block content %}
+    <div id="users_table">
+        <table>
+            <tbody>
+                {% for row in users %}
+                <tr>
+                    <td><a href="{{ url_for('user_details', username=row['username']) }}">{{ row['username'] }}</a></td>
+                    <td>{{ row['reputation'] }} <br> Reputation </td>
+                    <td> {{ row['registration'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

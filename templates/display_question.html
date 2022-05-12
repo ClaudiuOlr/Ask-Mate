@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Display question{% endblock %}
+
+{% block content %}
+
+<h1>Question</h1>
+<h3>{{ question['title'] }}</h3>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <form action="{{ url_for('add_new_answer', question_id=question['id']) }}" method="POST">
+        <button type="submit" class="btn btn-secondary">Add new answer</button>
+    </form>
+
+    <form action="{{ url_for('question_vote_up', question_id=question['id']) }}" method="post">
+        <button type="submit" class="btn btn-secondary">Vote up</button>
+    </form>
+    <form action="{{ url_for('question_vote_down', question_id=question['id']) }}" method="post">
+        <button type="submit" class="btn btn-secondary">Vote down</button>
+    </form>
+</div>
+
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col" class="text-center">ID</th>
+            <th scope="col" class="text-center">Message</th>
+            <th scope="col" class="text-center">View number</th>
+            <th scope="col" class="text-center">Vote number</th>
+            <th scope="col" class="text-center">Submission time</th>
+            <th scope="col" class="text-center">Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="text-center">{{ question['id'] }}</td>
+            <td class="text-center">{{ question['message'] }}</td>
+            <td class="text-center">{{ question['view_number'] }}</td>
+            <td class="text-center">{{ question['vote_number'] }}</td>
+            <td class="text-center">{{ question['submission_time'] }}</td>
+            <td class="text-center">{{ question['image'] }}</td>
+        </tr>
+    </tbody>
+</table>
+
+{% if (answers is defined) and answers %}
+<br>
+<h3>Answers</h3>
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">Answer</th>
+            <th class="text-center">Submission time</th>
+            <th class="text-center">Votes</th>
+            <th class="text-center">Edit</th>
+            <th class="text-center">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for answer in answers %}
+        <tr>
+            <td class="text-center">{{ answer['id'] }}</td>
+            <td class="text-center">{{ answer['message'] }}</td>
+            <td class="text-center">{{ answer['submission_time'] }}</td>
+            <td class="text-center"><a
+                    href="{{ url_for('answer_vote_up', question_id=answer['question_id'], answer_id=answer['id']) }}">
+                    Vote up
+                </a> {{ answer['vote_number'] }} <a
+                    href="{{ url_for('answer_vote_down', question_id=answer['question_id'], answer_id=answer['id']) }}">
+                    Vote down
+                </a></td>
+            <td class="text-center"><a href="{{ url_for('edit_answer', answer_id=answer['id']) }}">Modify</a></td>
+            <td class="text-center"><a href="{{ url_for('delete_answer', answer_id=answer['id']) }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+<br>
+<a href="{{ url_for('home_page') }}">Home page</a>
+{% endblock %}

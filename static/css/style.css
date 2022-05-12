@@ -1,0 +1,209 @@
+body {
+    background: linear-gradient(to right, rgb(0, 90, 167), rgb(255, 253, 228));
+}
+
+a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: gold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+span {
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    background: linear-gradient(
+        to right,
+        rgb(255, 239, 186),
+        rgb(255, 255, 255)
+    );
+    color: white;
+    padding: 0.5em 1em;
+}
+
+span.active {
+    background-color: black;
+}
+
+.mytable {
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.mytable td {
+    border: 1px solid black;
+    padding: 30px;
+}
+
+.form-content {
+    padding: 190px;
+    position: absolute;
+    background-color: gainsboro;
+    left: 32%;
+}
+
+#search_for {
+    background: linear-gradient(
+        to right,
+        rgb(255, 239, 186),
+        rgb(255, 255, 255)
+    );
+    left: 500px;
+    width: 280px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn.btn-light {
+    position: relative;
+    left: 500px;
+    top: 5px;
+}
+
+.navbar-nav {
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-text {
+    color: black;
+    font-family: "Adobe Garamond Pro" serif;
+}
+
+.input_form {
+    padding-top: 5vh;
+}
+
+.input_form h1 {
+    margin: 0 auto 3vh;
+    width: 95%;
+    font-weight: bold;
+    font-size: 2.5vh;
+    color: beige;
+    border-bottom: 3px solid grey;
+}
+
+.user-page-head {
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 85%;
+    padding: 40px 0 10px 0;
+    border-bottom: 1px solid #7b7b68;
+}
+
+.user-page-bottom {
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 89%;
+    padding: 40px 0 10px 0;
+}
+
+#users_table {
+    display: flex;
+    margin: 0 auto;
+    padding-top: 6vh;
+    align-content: center;
+    width: fit-content;
+}
+
+#users_table td {
+    text-align: center;
+    padding: 1vw 3vw;
+    font-size: 1.8vh;
+    background-color: rgba(255, 255, 255, 0.32);
+    border-top: 1px solid #c5c5b5;
+    border-bottom: 1px solid #c5c5b5;
+}
+
+#users_table td:last-child {
+    width: fit-content;
+    text-align: left;
+    border-right: 1px solid #c5c5b5;
+}
+
+#users_table td:first-child {
+    font-size: 2.2vh;
+    color: #474747;
+    border-left: 1px solid #c5c5b5;
+}
+
+#user_questions,
+#user_answers {
+    display: flex;
+    margin: 0 auto;
+    width: 85%;
+}
+
+#user_questions table,
+#user_answers table {
+    width: 100%;
+}
+
+#user_questions a,
+#user_answers a {
+    color: #254d82;
+    text-decoration: none;
+}
+
+#user_questions td,
+#user_answers td {
+    text-align: center;
+    padding: 1vw 2vw;
+    font-size: 2vh;
+    background-color: rgba(255, 255, 255, 0.32);
+    border-top: 1px solid #c5c5b5;
+    border-bottom: 1px solid #c5c5b5;
+}
+
+#user_questions td:first-child,
+#user_answers td:first-child {
+    width: 60%;
+    text-align: justify;
+    white-space: pre-wrap;
+    border-left: 1px solid #c5c5b5;
+}
+
+#user_questions td:last-child,
+#user_answers td:last-child {
+    width: 20%;
+    border-right: 1px solid #c5c5b5;
+}
+
+#question_info {
+    width: 20vw;
+}
+
+#question_info p {
+    text-align: right;
+    margin: 0 auto;
+    font-size: 1.9vh;
+    color: #474747;
+    height: fit-content;
+}
+
+.error_message p {
+    width: fit-content;
+    border: 1px solid #e14e68;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: rgba(255, 20, 69, 0.22);
+    font-size: 2vh;
+    font-style: italic;
+    color: #540c16;
+}
+
+#sort {
+    display: flex;
+    margin: 0 auto;
+    align-content: flex-start;
+    width: 85%;
+}
